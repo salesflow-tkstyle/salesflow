@@ -678,309 +678,411 @@ details p{margin:12px 0 0;color:var(--muted);font-weight:700}
 }
 
 
-/* ===== V39: スマホ表示崩れ修正（PC表示は変更しない） ===== */
+/* ===== V40: スマホ表示完全修正（実HTML構造対応） ===== */
+/* PC表示は変更せず、スマホ幅のみ上書き */
 @media (max-width: 768px) {
   html,
   body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
   }
 
-  * {
-    box-sizing: border-box;
-  }
-
-  img,
-  video,
-  canvas,
-  svg {
-    max-width: 100%;
-    height: auto;
+  body {
+    position: relative;
   }
 
   .container,
-  .section,
-  .hero,
-  .hero-inner,
-  .features,
-  .feature-grid,
-  .screen-card,
-  .screen-visual,
-  .customer-visual,
-  .cta,
-  .faq,
-  footer {
-    max-width: 100%;
-    overflow-x: hidden;
+  .narrow {
+    width: calc(100% - 32px) !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
-  header,
-  .site-header,
-  .header-inner {
-    max-width: 100%;
-    overflow-x: hidden;
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .site-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
   }
 
   .header-inner {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 16px;
-    padding-right: 16px;
+    height: auto !important;
+    min-height: 72px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    padding: 10px 0 !important;
   }
 
   .brand {
-    min-width: 0;
-    flex: 1 1 auto;
-  }
-
-  .brand-title {
-    min-width: 0;
-    line-height: 1.1;
-  }
-
-  .header-cta {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    font-size: 13px;
-    padding: 12px 14px;
-  }
-
-  .hero {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr !important;
-    gap: 28px;
-    width: 100%;
-  }
-
-  .hero-copy,
-  .hero-visual,
-  .phone-cluster,
-  .phones {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .hero-copy h1 {
-    font-size: clamp(38px, 12vw, 64px);
-    line-height: 1.05;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-
-  .hero-copy h2,
-  .hero-copy .lead,
-  .hero-copy p {
-    max-width: 100%;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-
-  .appstore-button {
-    max-width: 100%;
-  }
-
-  .phone-cluster,
-  .phones,
-  .hero-phones {
-    display: block;
-    transform: none !important;
-  }
-
-  .phone-cluster img,
-  .phones img,
-  .hero-phones img {
-    width: 100%;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .feature-grid,
-  .feature-cards,
-  .cards-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 18px;
-  }
-
-  .feature-card,
-  .feature-item,
-  .summary-card {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    display: grid;
-    grid-template-columns: 88px minmax(0, 1fr);
-    column-gap: 18px;
-    align-items: center;
-    padding: 22px;
-  }
-
-  .feature-card p,
-  .feature-item p,
-  .summary-card p,
-  .feature-card h3,
-  .feature-item h3,
-  .summary-card h3 {
-    min-width: 0;
-    max-width: 100%;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-
-  .feature-card p,
-  .feature-item p,
-  .summary-card p {
-    line-height: 1.75;
-  }
-
-  .screen-card {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 24px;
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  .screen-card:nth-child(even) {
-    direction: initial;
-  }
-
-  .screen-card > * {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  .screen-text,
-  .feature-copy {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .screen-text h3,
-  .feature-copy h3 {
-    font-size: clamp(26px, 8vw, 40px);
-    line-height: 1.25;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-
-  .screen-text p,
-  .feature-copy p {
-    max-width: 100%;
-    line-height: 1.85;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-
-  .screen-card .customer-visual,
-  .customer-visual {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 16px;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .screen-card .customer-visual .main-screen,
-  .customer-visual .main-screen,
-  .screen-card > img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .screen-card .supplement-panels,
-  .supplement-panels {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 12px;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .screen-card .supplement-panels figure,
-  .supplement-panels figure {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  .screen-card .supplement-panels img,
-  .supplement-panels img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .badge-row,
-  .pill-row,
-  .tags,
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100%;
-  }
-
-  .cta,
-  .final-cta,
-  .faq-section,
-  .footer-inner {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-inner {
-    gap: 8px;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    gap: 8px !important;
+    white-space: normal !important;
   }
 
   .brand-icon {
-    width: 44px;
-    height: 44px;
+    flex: 0 0 auto !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .brand-title {
+    min-width: 0 !important;
+    line-height: 1.12 !important;
   }
 
   .brand-title span,
   .brand-title strong {
-    font-size: 16px;
+    font-size: 17px !important;
+    line-height: 1.12 !important;
+    white-space: nowrap !important;
+  }
+
+  .nav {
+    display: none !important;
   }
 
   .header-cta {
-    font-size: 12px;
-    padding: 10px 12px;
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    padding: 12px 14px !important;
+    border-radius: 12px !important;
   }
 
-  .feature-card,
-  .feature-item,
-  .summary-card {
-    grid-template-columns: 72px minmax(0, 1fr);
-    column-gap: 14px;
-    padding: 20px;
+  .hero {
+    overflow-x: hidden !important;
+    padding: 46px 0 32px !important;
   }
 
-  .feature-card p,
-  .feature-item p,
-  .summary-card p {
-    font-size: 15px;
-    line-height: 1.7;
+  .hero-inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    min-height: 0 !important;
+    width: 100% !important;
+  }
+
+  .hero-copy {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .app-label {
+    font-size: 26px !important;
+    line-height: 1.25 !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(56px, 17vw, 78px) !important;
+    line-height: .98 !important;
+    letter-spacing: -0.055em !important;
+    max-width: 100% !important;
+  }
+
+  .hero h2 {
+    white-space: normal !important;
+    font-size: clamp(34px, 10vw, 48px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.035em !important;
+    max-width: 100% !important;
+  }
+
+  .lead {
+    font-size: 17px !important;
+    line-height: 1.85 !important;
+    max-width: 100% !important;
+    word-break: keep-all !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .appstore-button {
+    max-width: 100% !important;
+    width: auto !important;
+    padding: 14px 22px !important;
+  }
+
+  .appstore-button strong {
+    font-size: 26px !important;
+  }
+
+  .appstore-button .apple {
+    font-size: 42px !important;
+  }
+
+  /* トップ4枚画像：固定横並びをスマホでは解除 */
+  .device-stage {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .device,
+  .device-1,
+  .device-2,
+  .device-3,
+  .device-4 {
+    position: static !important;
+    inset: auto !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .overview {
+    overflow-x: hidden !important;
+    padding: 48px 0 56px !important;
+  }
+
+  .overview h2 {
+    font-size: clamp(30px, 9vw, 44px) !important;
+    line-height: 1.35 !important;
+    word-break: keep-all !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .overview-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 機能カード：横幅不足による1文字改行を解消 */
+  .overview-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: grid !important;
+    grid-template-columns: 82px minmax(0, 1fr) !important;
+    gap: 18px !important;
+    align-items: center !important;
+    padding: 22px !important;
+  }
+
+  .overview-card h3 {
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: anywhere !important;
+    font-size: 25px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .overview-card p {
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: anywhere !important;
+    font-size: 16px !important;
+    line-height: 1.85 !important;
+  }
+
+  .circle {
+    width: 74px !important;
+    height: 74px !important;
+  }
+
+  .trust-row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .trust-row div {
+    border-right: none !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .screens,
+  .faq,
+  .download {
+    overflow-x: hidden !important;
+    padding: 58px 0 !important;
+  }
+
+  .section-title h2 {
+    font-size: clamp(30px, 9vw, 44px) !important;
+    line-height: 1.35 !important;
+  }
+
+  .screen-card,
+  .screen-card.reverse {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    padding: 22px !important;
+    border-radius: 24px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .screen-card.reverse .screen-text,
+  .screen-card.reverse img {
+    order: initial !important;
+  }
+
+  .screen-card > *,
+  .screen-text,
+  .screen-visual,
+  .customer-visual {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .screen-text h3 {
+    font-size: clamp(28px, 8.5vw, 40px) !important;
+    line-height: 1.35 !important;
+    word-break: keep-all !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .screen-text p {
+    font-size: 16px !important;
+    line-height: 1.9 !important;
+    word-break: keep-all !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .screen-card img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .customer-visual,
+  .screen-card .customer-visual {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .customer-visual .main-screen,
+  .screen-card .customer-visual .main-screen {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .supplement-panels,
+  .screen-card .supplement-panels {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .supplement-panels figure,
+  .screen-card .supplement-panels figure {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 8px !important;
+  }
+
+  .supplement-panels img,
+  .screen-card .supplement-panels img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .download-box {
+    padding: 32px 18px !important;
+  }
+
+  .download-box h2 {
+    font-size: clamp(30px, 9vw, 42px) !important;
+    line-height: 1.35 !important;
+  }
+
+  details {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .site-footer,
+  .footer-links {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .container,
+  .narrow {
+    width: calc(100% - 24px) !important;
+  }
+
+  .brand-icon {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .brand-title span,
+  .brand-title strong {
+    font-size: 15px !important;
+  }
+
+  .header-cta {
+    font-size: 12px !important;
+    padding: 10px 11px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(54px, 16vw, 70px) !important;
+  }
+
+  .hero h2 {
+    font-size: clamp(31px, 9vw, 42px) !important;
+  }
+
+  .overview-card {
+    grid-template-columns: 74px minmax(0, 1fr) !important;
+    gap: 14px !important;
+    padding: 20px !important;
+  }
+
+  .overview-card h3 {
+    font-size: 23px !important;
+  }
+
+  .overview-card p {
+    font-size: 15.5px !important;
+  }
+
+  .circle {
+    width: 68px !important;
+    height: 68px !important;
   }
 
   .screen-card {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .screen-card .supplement-panels,
-  .supplement-panels {
-    grid-template-columns: 1fr 1fr !important;
+    padding: 18px !important;
   }
 }
