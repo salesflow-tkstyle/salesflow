@@ -1,0 +1,678 @@
+*{box-sizing:border-box}
+:root{--blue:#005de8;--blue2:#0b8dff;--deep:#071a3d;--text:#14213d;--muted:#59677c;--line:#dceaff;--bg:#f5faff;--shadow:0 22px 60px rgba(0,63,160,.16)}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP",sans-serif;color:var(--text);background:linear-gradient(180deg,#fff 0%,#eef7ff 100%);line-height:1.75}
+img{max-width:100%;display:block}
+.container{width:min(1180px,calc(100% - 44px));margin:0 auto}
+.narrow{width:min(840px,calc(100% - 44px))}
+.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.header-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--deep);font-size:20px;font-weight:900;white-space:nowrap}
+.brand strong{color:var(--blue)}
+.brand-icon{width:46px;height:46px;border-radius:11px;box-shadow:0 8px 24px rgba(0,80,200,.25)}
+.nav{display:flex;gap:34px;font-weight:800}
+.nav a{text-decoration:none;color:var(--deep)}
+.header-cta{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;text-decoration:none;font-weight:900;padding:12px 22px;border-radius:10px;box-shadow:0 10px 24px rgba(0,80,210,.24);white-space:nowrap}
+.hero{position:relative;overflow:hidden;padding:74px 0 42px;background:radial-gradient(circle at 0 0,#fff 0%,#f4fbff 42%,#e7f4ff 100%)}
+.hero::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-130px;height:290px;background:rgba(190,225,255,.46);border-radius:50% 50% 0 0;transform:rotate(-6deg)}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:.82fr 1.18fr;align-items:center;gap:42px;min-height:520px}
+.app-label{font-size:32px;font-weight:900;margin:0;color:#101b2f}
+.hero h1{font-size:clamp(66px,8vw,108px);line-height:.95;margin:0 0 22px;color:var(--blue);letter-spacing:-.065em}
+.hero h2{font-size:clamp(38px,4.6vw,58px);line-height:1.1;margin:0 0 26px;color:#1b263b;letter-spacing:-.045em}
+.lead{font-size:19px;font-weight:700;color:#2a354a;margin:0 0 28px}
+.appstore-button{display:inline-flex;align-items:center;gap:14px;background:linear-gradient(135deg,#0061ff,#008cff);color:#fff;text-decoration:none;border-radius:12px;padding:14px 28px;font-weight:800;box-shadow:0 18px 34px rgba(0,86,220,.28)}
+.appstore-button .apple{font-size:35px;line-height:1}
+.appstore-button strong{font-size:27px;line-height:1}
+.device-stage{position:relative;height:520px}
+.device{position:absolute;width:210px;border-radius:24px;box-shadow:0 22px 46px rgba(0,25,85,.22);background:#fff}
+.device-1{left:0;top:18px;z-index:2}
+.device-2{left:190px;top:0;z-index:3}
+.device-3{left:380px;top:28px;z-index:4}
+.device-4{right:0;top:42px;z-index:5;width:230px}
+.overview{position:relative;z-index:2;padding:54px 0 62px;background:rgba(255,255,255,.72)}
+.overview h2{text-align:center;font-size:36px;line-height:1.25;margin:0 0 32px;color:var(--deep)}
+.overview h2 span{color:var(--blue)}
+.overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px}
+.overview-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:center;box-shadow:0 14px 34px rgba(0,54,140,.08)}
+.circle{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;font-size:34px;background:#edf6ff}
+.overview-card h3{margin:0 0 4px;font-size:22px;color:var(--blue)}
+.overview-card p{margin:0;font-weight:700;font-size:14px;line-height:1.7}
+.green h3{color:#15a85a}.orange h3{color:#f28a00}.purple h3{color:#7c35d6}
+.trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 34px rgba(0,54,140,.08);overflow:hidden}
+.trust-row div{padding:22px;border-right:1px solid var(--line)}
+.trust-row div:last-child{border-right:none}
+.trust-row span{font-size:28px;color:var(--blue)}
+.trust-row strong{display:block;color:#123b92;font-size:18px}
+.trust-row p{margin:2px 0 0;font-weight:700;font-size:14px}
+.screens,.video-section,.faq,.download{padding:78px 0}
+.section-title{text-align:center;margin-bottom:42px}
+.section-title p,.mini{margin:0 0 8px;color:var(--blue);font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.section-title h2{font-size:clamp(32px,4vw,48px);line-height:1.25;margin:0;color:var(--deep)}
+.screen-card{display:grid;grid-template-columns:.72fr 1fr;gap:42px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;margin-bottom:32px;box-shadow:var(--shadow)}
+.screen-card.reverse{grid-template-columns:1fr .72fr}
+.screen-card.reverse .screen-text{order:2}.screen-card.reverse img{order:1}
+.screen-card.highlight{background:linear-gradient(135deg,#fff,#eef8ff);border:2px solid #b5ddff}
+.screen-text span{color:var(--blue);font-size:18px;font-weight:950;letter-spacing:.12em}
+.screen-text h3{font-size:clamp(28px,3.5vw,42px);line-height:1.25;margin:10px 0 14px;color:var(--deep)}
+.screen-text p{font-size:18px;color:var(--muted);font-weight:700}
+.screen-card img{border-radius:22px;box-shadow:0 18px 42px rgba(0,50,140,.15)}
+.video-box{display:grid;grid-template-columns:.8fr 1.2fr;gap:32px;align-items:center;background:linear-gradient(135deg,#004dd1,#0aa6ff);color:#fff;border-radius:28px;padding:42px;box-shadow:var(--shadow)}
+.video-box h2{font-size:40px;line-height:1.25;margin:0 0 12px}
+.video-box p{font-weight:700}
+.video-placeholder{min-height:280px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:22px;display:grid;place-items:center;text-align:center}
+.video-placeholder span{width:74px;height:74px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:28px;margin:0 auto 12px}
+details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin-bottom:12px}
+summary{font-weight:900;color:var(--deep);cursor:pointer}
+details p{margin:12px 0 0;color:var(--muted);font-weight:700}
+.download-box{text-align:center;background:#fff;border:1px solid var(--line);border-radius:30px;padding:52px 24px;box-shadow:var(--shadow)}
+.download-box img{width:96px;height:96px;border-radius:22px;margin:0 auto 18px;box-shadow:0 14px 30px rgba(0,80,200,.23)}
+.download-box h2{font-size:42px;margin:0 0 8px;color:var(--deep)}
+.download-box p{margin:0 0 24px;color:var(--muted);font-weight:800}
+.download-box small{display:block;margin-top:14px;color:var(--muted)}
+.site-footer{text-align:center;padding:30px;color:var(--muted);background:#fff;font-weight:700}
+@media(max-width:1050px){.nav{display:none}.hero-inner{grid-template-columns:1fr}.device-stage{height:560px}.device-1{left:4%}.device-2{left:25%}.device-3{left:46%}.device-4{right:4%}.overview-grid,.trust-row{grid-template-columns:1fr 1fr}.screen-card,.screen-card.reverse,.video-box{grid-template-columns:1fr}.screen-card.reverse .screen-text,.screen-card.reverse img{order:initial}}
+@media(max-width:620px){.container{width:min(100% - 24px,1180px)}.header-inner{height:66px}.brand span{font-size:14px}.brand-icon{width:38px;height:38px}.header-cta{font-size:12px;padding:8px 10px}.hero{padding-top:42px}.hero-inner{gap:22px}.app-label{font-size:23px}.hero h1{font-size:56px}.hero h2{font-size:33px}.lead{font-size:16px}.device-stage{height:590px}.device{width:170px}.device-1{left:0;top:0}.device-2{left:28%;top:35px}.device-3{left:8%;top:260px}.device-4{right:0;top:230px;width:185px}.overview-grid,.trust-row{grid-template-columns:1fr}.overview-card{grid-template-columns:72px 1fr}.trust-row div{border-right:none;border-bottom:1px solid var(--line)}.screen-card{padding:18px;border-radius:22px}.screens,.video-section,.faq,.download{padding:54px 0}.video-box,.download-box{padding:28px 18px;border-radius:22px}.video-box h2,.download-box h2{font-size:30px}}
+
+
+/* ===== V4 partial fixes based on V3 only ===== */
+
+/* ② トップ画面のスマホ画像4枚を整列表示（画像は変更しない） */
+.device-stage{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 14px;
+  height: 520px;
+}
+
+.device{
+  position: static;
+  width: 23%;
+  max-width: 210px;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+}
+
+.device-1,
+.device-2,
+.device-3,
+.device-4{
+  left: auto;
+  right: auto;
+  top: auto;
+  z-index: auto;
+}
+
+/* ③ 「営業活動を、ひとつに。」の途中改行を防ぐ */
+.hero h2{
+  white-space: nowrap;
+}
+
+/* ④ 二段目カードの説明文が細かく改行されないように調整 */
+.overview-card{
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 14px;
+}
+
+.overview-card p{
+  font-size: 15.5px;
+  line-height: 1.8;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-break: strict;
+}
+
+.overview-card h3{
+  white-space: nowrap;
+}
+
+/* V3のスマホ表示は維持しつつ、崩れない範囲で調整 */
+@media(max-width:1050px){
+  .device-stage{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: auto;
+    gap: 12px;
+  }
+
+  .device,
+  .device-4{
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero h2{
+    white-space: normal;
+  }
+}
+
+@media(max-width:620px){
+  .device-stage{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .overview-card p{
+    font-size: 15px;
+  }
+}
+
+
+/* ===== V5 partial fixes based on V4 only ===== */
+
+/* ① ヘッダーのアプリ名を2行表示 */
+.brand-title{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-title span{
+  display: block;
+}
+
+.brand-title strong{
+  display: block;
+}
+
+/* ② トップ画面のスマホ画像4枚を少し大きくする */
+.device-stage{
+  gap: 10px;
+}
+
+.device{
+  width: 25%;
+  max-width: 240px;
+}
+
+/* ③ 二段目カード説明文の不自然な短い改行を防ぐ */
+.overview-card{
+  grid-template-columns: 86px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.overview-card p{
+  font-size: 16px;
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  line-break: strict;
+}
+
+.overview-card h3{
+  white-space: nowrap;
+}
+
+@media(max-width:1050px){
+  .device,
+  .device-4{
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media(max-width:620px){
+  .brand-title{
+    line-height: 1.1;
+  }
+
+  .overview-card{
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .overview-card p{
+    font-size: 15px;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+}
+
+
+/* ===== V7 partial fixes based on V5 visual result only ===== */
+
+/* ① Smartphone screenshots: keep V5 layout, restore visual size closer to V3 */
+.device-stage{
+  gap: 4px !important;
+}
+
+.device{
+  width: 27.5% !important;
+  max-width: 275px !important;
+}
+
+.device-4{
+  width: 27.5% !important;
+  max-width: 285px !important;
+}
+
+/* ② Second-section card descriptions: controlled line breaks, no 1-line-6-character wrapping */
+.overview-card p{
+  max-width: none !important;
+  font-size: 15.5px !important;
+  line-height: 1.75 !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+}
+
+@media(max-width:1050px){
+  .device,
+  .device-4{
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+@media(max-width:620px){
+  .overview-card p{
+    font-size: 15px !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+
+/* ===== V8 fix: restore V3 smartphone hero display only ===== */
+/* 指定箇所以外は変更しない。トップ画面スマホ4枚のみV3相当へ戻す。 */
+
+.device-stage{
+  position: relative !important;
+  display: block !important;
+  height: 520px !important;
+  gap: 0 !important;
+}
+
+.device{
+  position: absolute !important;
+  width: 210px !important;
+  max-width: none !important;
+  height: auto !important;
+  object-fit: initial !important;
+  object-position: initial !important;
+  border-radius: 24px !important;
+}
+
+.device-1{
+  left: 0 !important;
+  top: 18px !important;
+  z-index: 2 !important;
+}
+
+.device-2{
+  left: 190px !important;
+  top: 0 !important;
+  z-index: 3 !important;
+}
+
+.device-3{
+  left: 380px !important;
+  top: 28px !important;
+  z-index: 4 !important;
+}
+
+.device-4{
+  right: 0 !important;
+  top: 42px !important;
+  z-index: 5 !important;
+  width: 230px !important;
+  max-width: none !important;
+}
+
+@media(max-width:1050px){
+  .device-stage{
+    position: relative !important;
+    display: block !important;
+    height: 560px !important;
+    gap: 0 !important;
+  }
+
+  .device{
+    position: absolute !important;
+    width: 210px !important;
+    max-width: none !important;
+  }
+
+  .device-1{
+    left: 4% !important;
+    top: 18px !important;
+  }
+
+  .device-2{
+    left: 25% !important;
+    top: 0 !important;
+  }
+
+  .device-3{
+    left: 46% !important;
+    top: 28px !important;
+  }
+
+  .device-4{
+    right: 4% !important;
+    top: 42px !important;
+    width: 230px !important;
+    max-width: none !important;
+  }
+}
+
+@media(max-width:620px){
+  .device-stage{
+    height: 590px !important;
+  }
+
+  .device{
+    position: absolute !important;
+    width: 170px !important;
+    max-width: none !important;
+  }
+
+  .device-1{
+    left: 0 !important;
+    top: 0 !important;
+  }
+
+  .device-2{
+    left: 28% !important;
+    top: 35px !important;
+  }
+
+  .device-3{
+    left: 8% !important;
+    top: 260px !important;
+  }
+
+  .device-4{
+    right: 0 !important;
+    top: 230px !important;
+    width: 185px !important;
+    max-width: none !important;
+  }
+}
+
+
+/* ===== V9 : トップ画面スマホ4枚を横1列整列 ===== */
+/* 他は変更しない */
+
+.device-stage{
+  position: relative !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  height: 520px !important;
+}
+
+.device,
+.device-1,
+.device-2,
+.device-3,
+.device-4{
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+}
+
+.device{
+  width: 210px !important;
+  max-width: none !important;
+}
+
+.device-4{
+  width: 230px !important;
+}
+
+
+/* V10: only make task image same size as other three */
+.device-4{
+  width:210px !important;
+  max-width:none !important;
+}
+
+/* V11 only: add spacing between hero screenshots */
+.device-stage{gap:18px !important;}
+
+
+/* ===== V12 partial fixes based on V11 only ===== */
+
+/* ① App Storeボタン内のリンゴマークのみ拡大 */
+.appstore-button .apple{
+  font-size: 48px !important;
+  line-height: 1 !important;
+}
+
+/* ② 二段目カードの絵文字アイコンをSF Symbols風に統一 */
+.circle.sf-icon{
+  font-size: 0 !important;
+  background: #edf6ff;
+}
+
+.circle.sf-icon svg{
+  width: 42px;
+  height: 42px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.customer-icon{
+  color: #0b78ff;
+  background: #eaf4ff !important;
+}
+
+.activity-icon{
+  color: #15a85a;
+  background: #eafbf1 !important;
+}
+
+.order-icon{
+  color: #f28a00;
+  background: #fff4e3 !important;
+}
+
+.task-icon{
+  color: #7c35d6;
+  background: #f4ecff !important;
+}
+
+
+/* ===== V15 preview: 00 顧客一覧の補足画面追加 ===== */
+.customer-visual{
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 16px;
+  align-items: center;
+}
+
+.customer-visual .main-screen{
+  border-radius: 22px;
+  box-shadow: 0 18px 42px rgba(0,50,140,.15);
+}
+
+.supplement-panels{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.supplement-panels figure{
+  margin: 0;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 10px 24px rgba(0,54,140,.10);
+}
+
+.supplement-panels img{
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.supplement-panels figcaption{
+  margin-top: 5px;
+  text-align: center;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+@media(max-width:1050px){
+  .customer-visual{
+    grid-template-columns: 1fr;
+  }
+  .supplement-panels{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media(max-width:620px){
+  .supplement-panels{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ===== V16: 補足画像4枚のクリック拡大・上部バナー除去対応 ===== */
+.lightbox-link{
+  display: block;
+  text-decoration: none;
+  cursor: zoom-in;
+}
+
+.lightbox-link img{
+  display: block;
+}
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(3, 14, 34, .78);
+}
+
+.lightbox.is-open{
+  display: flex;
+}
+
+.lightbox-image{
+  max-width: min(92vw, 520px);
+  max-height: 84vh;
+  border-radius: 24px;
+  box-shadow: 0 28px 80px rgba(0,0,0,.36);
+  background: #fff;
+}
+
+.lightbox-close{
+  position: fixed;
+  top: 22px;
+  right: 26px;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #0b2a5b;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(0,0,0,.18);
+}
+
+.lightbox-caption{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+
+/* ===== V17: 補足画像4枚のスマホ枠維持・Dynamic Island非表示版 ===== */
+.lightbox-image{
+  max-width: min(92vw, 460px);
+  max-height: 86vh;
+  object-fit: contain;
+}
+
+
+/* ===== V21: 01 顧客管理の補足画面追加 ===== */
+.screen-card .customer-visual{
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 16px;
+  align-items: center;
+}
+
+.screen-card .customer-visual .main-screen{
+  border-radius: 22px;
+  box-shadow: 0 18px 42px rgba(0,50,140,.15);
+}
+
+.screen-card .supplement-panels{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.screen-card .supplement-panels figure{
+  margin: 0;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 10px 24px rgba(0,54,140,.10);
+}
+
+.screen-card .supplement-panels img{
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.screen-card .supplement-panels figcaption{
+  margin-top: 5px;
+  text-align: center;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.lightbox-link{
+  display: block;
+  text-decoration: none;
+  cursor: zoom-in;
+}
+
+@media(max-width:1050px){
+  .screen-card .customer-visual{
+    grid-template-columns: 1fr;
+  }
+  .screen-card .supplement-panels{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media(max-width:620px){
+  .screen-card .supplement-panels{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
