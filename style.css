@@ -676,3 +676,311 @@ details p{margin:12px 0 0;color:var(--muted);font-weight:700}
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
+/* ===== V39: スマホ表示崩れ修正（PC表示は変更しない） ===== */
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .container,
+  .section,
+  .hero,
+  .hero-inner,
+  .features,
+  .feature-grid,
+  .screen-card,
+  .screen-visual,
+  .customer-visual,
+  .cta,
+  .faq,
+  footer {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  header,
+  .site-header,
+  .header-inner {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .header-inner {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .brand-title {
+    min-width: 0;
+    line-height: 1.1;
+  }
+
+  .header-cta {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+    width: 100%;
+  }
+
+  .hero-copy,
+  .hero-visual,
+  .phone-cluster,
+  .phones {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(38px, 12vw, 64px);
+    line-height: 1.05;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .hero-copy h2,
+  .hero-copy .lead,
+  .hero-copy p {
+    max-width: 100%;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .appstore-button {
+    max-width: 100%;
+  }
+
+  .phone-cluster,
+  .phones,
+  .hero-phones {
+    display: block;
+    transform: none !important;
+  }
+
+  .phone-cluster img,
+  .phones img,
+  .hero-phones img {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature-grid,
+  .feature-cards,
+  .cards-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .feature-card,
+  .feature-item,
+  .summary-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    column-gap: 18px;
+    align-items: center;
+    padding: 22px;
+  }
+
+  .feature-card p,
+  .feature-item p,
+  .summary-card p,
+  .feature-card h3,
+  .feature-item h3,
+  .summary-card h3 {
+    min-width: 0;
+    max-width: 100%;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .feature-card p,
+  .feature-item p,
+  .summary-card p {
+    line-height: 1.75;
+  }
+
+  .screen-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .screen-card:nth-child(even) {
+    direction: initial;
+  }
+
+  .screen-card > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .screen-text,
+  .feature-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .screen-text h3,
+  .feature-copy h3 {
+    font-size: clamp(26px, 8vw, 40px);
+    line-height: 1.25;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .screen-text p,
+  .feature-copy p {
+    max-width: 100%;
+    line-height: 1.85;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .screen-card .customer-visual,
+  .customer-visual {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .screen-card .customer-visual .main-screen,
+  .customer-visual .main-screen,
+  .screen-card > img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .screen-card .supplement-panels,
+  .supplement-panels {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .screen-card .supplement-panels figure,
+  .supplement-panels figure {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .screen-card .supplement-panels img,
+  .supplement-panels img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .badge-row,
+  .pill-row,
+  .tags,
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  .cta,
+  .final-cta,
+  .faq-section,
+  .footer-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    gap: 8px;
+  }
+
+  .brand-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .brand-title span,
+  .brand-title strong {
+    font-size: 16px;
+  }
+
+  .header-cta {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+
+  .feature-card,
+  .feature-item,
+  .summary-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+    column-gap: 14px;
+    padding: 20px;
+  }
+
+  .feature-card p,
+  .feature-item p,
+  .summary-card p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .screen-card {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .screen-card .supplement-panels,
+  .supplement-panels {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
