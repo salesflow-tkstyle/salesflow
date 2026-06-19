@@ -1289,3 +1289,80 @@ details p{margin:12px 0 0;color:var(--muted);font-weight:700}
     white-space: nowrap;
   }
 }
+
+
+/* ===== V45.4: Cloud比較表の表示崩れ修正 ===== */
+.cloud-section {
+  text-align: center;
+}
+
+.cloud-section .container,
+.cloud-section .narrow {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.cloud-box {
+  width: min(840px, 100%) !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+.comparison-wrap {
+  width: 100% !important;
+  max-width: 760px !important;
+  margin: 28px auto 0 !important;
+  overflow-x: auto !important;
+}
+
+.comparison-table {
+  width: 100% !important;
+  min-width: 640px !important;
+  margin: 0 auto !important;
+  border-collapse: collapse !important;
+  table-layout: fixed !important;
+  text-align: center !important;
+}
+
+.comparison-table th,
+.comparison-table td {
+  text-align: center !important;
+  vertical-align: middle !important;
+  padding: 14px 12px !important;
+  border-bottom: 1px solid var(--line) !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+  width: 38% !important;
+  text-align: center !important;
+}
+
+.comparison-table th:nth-child(2),
+.comparison-table td:nth-child(2),
+.comparison-table th:nth-child(3),
+.comparison-table td:nth-child(3) {
+  width: 31% !important;
+  text-align: center !important;
+}
+
+@media(max-width:620px) {
+  .comparison-wrap {
+    max-width: 100% !important;
+    margin-top: 22px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table {
+    min-width: 560px !important;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    font-size: 13px !important;
+    padding: 11px 8px !important;
+  }
+}
