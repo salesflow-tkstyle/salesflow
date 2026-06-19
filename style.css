@@ -1198,3 +1198,94 @@ details p{margin:12px 0 0;color:var(--muted);font-weight:700}
     height: auto !important;
   }
 }
+
+
+/* ===== V45.1: SalesFlow Cloud section / comparison table fixes ===== */
+.cloud-section {
+  padding: 78px 0;
+  background: rgba(255,255,255,.62);
+}
+
+.cloud-box {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 42px 34px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.cloud-lead {
+  color: var(--deep);
+  font-size: 22px;
+  font-weight: 900;
+  margin: 0 0 10px;
+}
+
+.cloud-box p {
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.9;
+}
+
+.cloud-cta {
+  display: inline-flex;
+  margin: 18px auto 30px;
+}
+
+.comparison-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comparison-table th,
+.comparison-table td {
+  text-align: center !important;
+  vertical-align: middle;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 800;
+}
+
+.comparison-table th {
+  color: var(--deep);
+  font-weight: 950;
+}
+
+.comparison-table td:first-child,
+.comparison-table th:first-child {
+  text-align: center !important;
+}
+
+@media(max-width:620px) {
+  .cloud-section {
+    padding: 54px 0;
+  }
+
+  .cloud-box {
+    padding: 28px 18px;
+    border-radius: 22px;
+  }
+
+  .cloud-lead {
+    font-size: 18px;
+  }
+
+  .cloud-box p {
+    font-size: 15px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 10px 8px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+}
